@@ -1,43 +1,34 @@
 'use client'
-
 import Link from 'next/link'
 import { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import './Navbar.css'
-
+ 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-logo">
-           <Link href="/" className="navbar-logo">Test Platform</Link>
-          </div>
+    <nav className="navbar  mx-auto  mx-auto px-8 md:px-16 py-8 bg-gray-50 bg-white shadow-md   flex justify-between items-center sticky top-0 z-50">
+      <Link href="/" className="text-xl font-bold text-blue-700">YallaMotor</Link>
 
-     
-        <div className="navbar-links">
-          <Link href="/used-cars" className="navbar-link">Cars List </Link>
-      
-        </div>
-
-        {/* Hamburger Icon */}
-        <div className="navbar-toggle" onClick={() => setMenuOpen(true)}>
-          <FaBars />
-        </div>
+      <div className="hidden md:flex items-center space-x-6">
+        <Link href="/used-cars" className="hover:text-blue-600 font-medium">Used</Link>
+        <Link href="/used-cars" className="hover:text-blue-600 font-medium">New</Link>
+        <Link href="/used-cars" className="hover:text-blue-600 font-medium">Electric</Link>
+        <Link href="/used-cars" className="hover:text-blue-600 font-medium">Sell My Car</Link>
       </div>
 
-     
-      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        <div className="close-icon" onClick={() => setMenuOpen(false)}>
-          <FaTimes />
-        </div>
-        <Link href="/used-cars" className="navbar-link" onClick={() => setMenuOpen(false)}>Cars List</Link>
- 
+      <div className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
       </div>
 
-    
-      {menuOpen && <div className="menu-backdrop" onClick={() => setMenuOpen(false)} />}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white flex flex-col items-start px-6 py-4 shadow-md space-y-3">
+          <Link href="/used-cars" onClick={() => setMenuOpen(false)}>Used</Link>
+          <Link href="/used-cars" onClick={() => setMenuOpen(false)}>New</Link>
+          <Link href="/used-cars" onClick={() => setMenuOpen(false)}>Electric</Link>
+          <Link href="/used-cars" onClick={() => setMenuOpen(false)}>Sell My Car</Link>
+        </div>
+      )}
     </nav>
   )
 }

@@ -1,11 +1,14 @@
-
-// next.config.js
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['ymimg1.b8cdn.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',  
+      },
+    ],
   },
+ 
 };
 
 module.exports = nextConfig;

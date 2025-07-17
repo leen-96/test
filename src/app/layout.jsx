@@ -1,14 +1,17 @@
 import './globals.css';
-import { Rubik } from 'next/font/google';
+ 
 import Navbar from './components/Navbar/Navbar';
 
-const rubik = Rubik({ subsets: ['latin'] });
+import { Rubik } from 'next/font/google';
+
+const rubik = Rubik({ subsets: ['latin'], display: 'swap' });
 
 export const metadata = {
   title: {
     default: 'YallaMotor Clone',
     template: '%s | Used Cars UAE',
   },
+  
   description: 'Find great deals on used cars in the UAE. Browse listings by price, model, and more.',
   icons: {
     icon: '/favicon.ico',  
