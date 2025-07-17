@@ -3,7 +3,8 @@ import CarCard from "@/app/components/CarCard/CarCard"
 import Pagination from "@/app/components/Pagination/Pagination"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
-
+import Breadcrumb from "@/app/components/breadcrumb/breadcrumb"
+import CarFilters from "@/app/components/car-filters/car-filters"
 export const metadata = {
   title: "Used Cars for Sale in UAE | Find Your Perfect Car",
   description:
@@ -74,6 +75,16 @@ export default async function UsedCarsPage({ searchParams }) {
   return (
     <main className="min-h-screen bg-gray-50 ">
       <div className="mx-auto  mx-auto px-8 md:px-16 lg:px-16 py-8">
+         <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Used Cars", href: "/used-cars" },
+              { label: "Used cars for sale in UAE" },
+            ]}
+          />
+
+          {/* Filters */}
+          <CarFilters />
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
