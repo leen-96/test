@@ -12,7 +12,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 4. Visit: `http://localhost:3000/used-cars`
 
  
-##  How to Test the preformance
+##  How to Test the preformance Core Web Vitals
 1. Clone repo or unzip
 2. Run: `npm run build`
 3. Run: `npm run start`
